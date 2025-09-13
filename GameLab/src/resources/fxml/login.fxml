@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.fx.LoginController">
+   <children>
+      <Label styleClass="title" text="Fighting Game">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Label>
+      
+      <VBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Label text="Login to join the battle!" styleClass="subtitle">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      
+      <GridPane alignment="CENTER" hgap="15.0" vgap="15.0">
+         <columnConstraints>
+            <ColumnConstraints minWidth="80.0" />
+            <ColumnConstraints minWidth="200.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <TextField fx:id="usernameField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+            <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <PasswordField fx:id="passwordField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      
+      <HBox alignment="CENTER" spacing="15.0">
+         <children>
+            <Button fx:id="loginButton" onAction="#handleLogin" styleClass="primary-button" text="Login" />
+            <Button fx:id="registerButton" onAction="#handleRegister" styleClass="secondary-button" text="Register" />
+         </children>
+      </HBox>
+      
+      <ProgressIndicator fx:id="progressIndicator" prefHeight="30.0" prefWidth="30.0" />
+      
+      <Label fx:id="statusLabel" text=" " styleClass="status-label" />
+      <Label fx:id="serverLabel" styleClass="server-info" text="Server: localhost:12345" />
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+   </padding>
+</VBox>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.fx.GameController">
+   <center>
+      <Canvas fx:id="gameCanvas" height="600.0" width="800.0" />
+   </center>
+   
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="30.0" styleClass="status-bar">
+         <children>
+            <Label fx:id="statusLabel" text="Waiting for players..." styleClass="status-info" />
+            <Label fx:id="playersLabel" text="Players: 0" styleClass="status-info" />
+            <Label fx:id="healthLabel" text="Health: 100" styleClass="health-info" />
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+         </padding>
+      </HBox>
+   </top>
+   
+   <bottom>
+      <Label fx:id="controlsLabel" styleClass="controls-info" text="Controls: Arrow keys to move, Space to attack" textAlignment="CENTER">
+         <padding>
+            <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
+         </padding>
+      </Label>
+   </bottom>
+</BorderPane>
