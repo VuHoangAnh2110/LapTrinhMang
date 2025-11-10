@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.uploadfileftp.ftpclient.ClientController"
+      spacing="15" style="-fx-background-color: #f4f4f4;"
+      minWidth="700" minHeight="600"
+      prefWidth="800" prefHeight="700">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Tiêu đề -->
+    <Label text="FTP CLIENT - UPLOAD FILE" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;">
+        <padding>
+            <Insets bottom="10"/>
+        </padding>
+    </Label>
+
+    <!-- Phần kết nối -->
+    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 5;">
+        <Label text="Thông tin kết nối" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+        
+        <GridPane hgap="10" vgap="10">
+            <columnConstraints>
+                <ColumnConstraints minWidth="80" prefWidth="80"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+
+            <!-- Host -->
+            <Label text="Host:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <TextField fx:id="txtHost" GridPane.columnIndex="1" GridPane.rowIndex="0" 
+                      promptText="localhost"/>
+
+            <!-- Port -->
+            <Label text="Port:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <TextField fx:id="txtPort" GridPane.columnIndex="1" GridPane.rowIndex="1" 
+                      promptText="2121"/>
+
+            <!-- Username -->
+            <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+            <TextField fx:id="txtUsername" GridPane.columnIndex="1" GridPane.rowIndex="2" 
+                      promptText="admin"/>
+
+            <!-- Password -->
+            <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+            <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="3" 
+                          promptText="123"/>
+        </GridPane>
+
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button fx:id="btnConnect" text="Kết nối" onAction="#handleConnect" 
+                   style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20;">
+                <cursor><javafx.scene.Cursor fx:constant="HAND"/></cursor>
+            </Button>
+            
+            <Button fx:id="btnDisconnect" text="Ngắt kết nối" onAction="#handleDisconnect" 
+                   style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20;">
+                <cursor><javafx.scene.Cursor fx:constant="HAND"/></cursor>
+            </Button>
+            
+            <Label fx:id="lblStatus" text="Chưa kết nối" style="-fx-font-style: italic;"/>
+        </HBox>
+    </VBox>
+
+    <!-- Phần upload file -->
+    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 5;">
+        <Label text="Upload File" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+        
+        <!-- Chọn file và Upload -->
+        <HBox spacing="10" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+            <Button fx:id="btnChooseFile" text="Chọn File" onAction="#handleChooseFile"
+                   style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20;">
+                <cursor><javafx.scene.Cursor fx:constant="HAND"/></cursor>
+            </Button>
+            
+            <Label fx:id="lblSelectedFile" text="Chưa chọn file" style="-fx-font-style: italic;" 
+                   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            
+            <Button fx:id="btnUpload" text="Upload" onAction="#handleUpload"
+                   style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20;">
+                <cursor><javafx.scene.Cursor fx:constant="HAND"/></cursor>
+            </Button>
+        </HBox>
+
+        <ProgressBar fx:id="progressBar" prefWidth="Infinity" progress="0"/>
+    </VBox>
+
+    <!-- Phần log -->
+    <VBox spacing="5" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 5;">
+        <Label text="Log hoạt động" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+        <TextArea fx:id="txtLog" editable="false" wrapText="true" VBox.vgrow="ALWAYS"
+                 style="-fx-font-family: 'Consolas', 'Courier New', monospace; -fx-font-size: 11px;"
+                 prefHeight="200"/>
+    </VBox>
+
+</VBox>
